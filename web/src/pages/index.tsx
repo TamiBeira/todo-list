@@ -7,10 +7,10 @@ export default function Home(){
       <Head>
         <title>TodoList</title>
       </Head>
-      <Flex background="todoList.900" height="100vh" alignItems="center" justifyContent="center">
+      <Flex background="todoList.900" height="100vh" alignItems="center" justifyContent="center" flexDirection="column">
         <Text color="todoList.100" fontSize={30}>Todo List</Text>
         <Link href='/login'>
-          <Text>Acessar o sistema</Text>
+          <Text textDecoration="underline" color="orange">Acessar o sistema</Text>
         </Link>
       </Flex>
     </>

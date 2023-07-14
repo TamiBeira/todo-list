@@ -5,7 +5,7 @@ import { Flex, Text, Button, List, ListItem, Center } from '@chakra-ui/react';
 import { canSSRAuth } from '../../utils/canSSRAuth'
 import { setupAPIClient } from '../../services/api'
 
-import { TfiTrash, TfiCheck, TfiPlus } from "react-icons/tfi";
+import { TfiTrash, TfiCheck, TfiPlus, TfiPencil } from "react-icons/tfi";
 import Link from 'next/link';
 
 interface AllTask{
@@ -97,6 +97,14 @@ export default function Dashboard({task}:TaskProps){
                         background="transparent"
                     >
                         <TfiTrash size={28} color="#fba931"/>
+                    </Button>
+                    <Button 
+                        _hover={{bg: "transparent"}} 
+                        title='Concluir tarefa' 
+                        alignContent="center"
+                        background="transparent"
+                    >
+                        <TfiPencil size={28} color="#fba931"/>
                     </Button>
                     <Button 
                         _hover={{bg: "transparent"}} 
