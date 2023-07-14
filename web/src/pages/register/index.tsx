@@ -39,7 +39,9 @@ export default function Register(){
             </Center>
             <Input
                 background="todoList.400"
-                variant="filled"
+                variant="flushed"
+                focusBorderColor='orange'
+                p={5}
                 size="lg"
                 placeholder='Nome'
                 type='text'
@@ -51,7 +53,9 @@ export default function Register(){
             />
             <Input
                 background="todoList.400"
-                variant="filled"
+                variant="flushed"
+                focusBorderColor='orange'
+                p={5}
                 size="lg"
                 placeholder='email@email.com'
                 type='email'
@@ -63,7 +67,9 @@ export default function Register(){
             />
             <Input
                 background="todoList.400"
-                variant="filled"
+                variant="flushed"
+                focusBorderColor='orange'
+                p={5}
                 size="lg"
                 placeholder='******'
                 type='password'

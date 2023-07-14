@@ -43,6 +43,7 @@ export default function Login(){
                 type='email'
                 mb={3}
                 color="todoList.100"
+                p={5}
 
                 value={email}
                 onChange={(e)=>{setEmail(e.target.value)}}
@@ -56,6 +57,7 @@ export default function Login(){
                 type='password'
                 mb={3}
                 color="todoList.100"
+                p={5}
 
                 value={password}
                 onChange={(e)=>{setPassword(e.target.value)}}
