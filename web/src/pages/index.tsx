@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import {Flex, Text} from '@chakra-ui/react'
+import {Flex, Text, Link} from '@chakra-ui/react'
 
 export default function Home(){
   return(
@@ -9,6 +9,9 @@ export default function Home(){
       </Head>
       <Flex background="todoList.900" height="100vh" alignItems="center" justifyContent="center">
         <Text color="todoList.100" fontSize={30}>Todo List</Text>
+        <Link href='/login'>
+          <Text>Acessar o sistema</Text>
+        </Link>
       </Flex>
     </>
   )

@@ -1,6 +1,8 @@
 import {useState, useContext} from 'react'
 import Head from 'next/head'
 import {Flex, Text, Center, Input, Button} from '@chakra-ui/react'
+import { toast } from 'react-toastify'
+
 import Link from 'next/link'
 
 import {AuthContext} from '../../context/AuthContext'
@@ -14,8 +16,8 @@ export default function Register(){
 
     //Criar cadastro
     async function handleRegister(){
-        if(name ==="" && email ==="" && password === ""){
-          return;
+        if(name ==="" || email ==="" || password === ""){
+          return toast.error('Favor preencher todos os campos para cadastro!')
         }
         await signUp({
           name,
