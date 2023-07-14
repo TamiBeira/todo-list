@@ -5,7 +5,7 @@ import { Flex, Text, Button, List, ListItem, Center } from '@chakra-ui/react';
 import { canSSRAuth } from '../../utils/canSSRAuth'
 import { setupAPIClient } from '../../services/api'
 
-import { TfiTrash, TfiCheck, TfiPlus, TfiPencil } from "react-icons/tfi";
+import { TfiTrash, TfiCheck, TfiPlus, TfiPencil, TfiUser } from "react-icons/tfi";
 import Link from 'next/link';
 
 interface AllTask{
@@ -48,8 +48,9 @@ export default function Dashboard({task}:TaskProps){
                     background="button.cta" 
                     justifyContent="center" 
                     alignItems="center" 
+                    w={250}
                     mb={10} 
-                    p={5} 
+                    p={2} 
                     rounded={8}
                 >
                         <TfiPlus size={28} color="#171923"/>
@@ -60,11 +61,34 @@ export default function Dashboard({task}:TaskProps){
                             fontSize={15} 
                             fontWeight={900}
                         >
-                            Quer cadastrar uma nova tarefa
+                            Cadastre uma nova tarefa
                         </Text>
                     </Flex> 
                 </Link>
-            </Center>
+                <Link href="/myAcount">
+                <Flex 
+                    background="button.cta" 
+                    justifyContent="center" 
+                    alignItems="center" 
+                    w={250}
+                    mb={10}
+                    ml={5} 
+                    p={2} 
+                    rounded={8}
+                >
+                        <TfiUser size={28} color="#171923"/>
+                        <Text 
+                            ml={3} 
+                            cursor="pointer" 
+                            color="gray.900" 
+                            fontSize={15} 
+                            fontWeight={900}
+                        >
+                            Acessar minha conta
+                        </Text>
+                    </Flex> 
+                </Link> 
+          </Center>
 
         {todoList.map(task => (            
         <Flex 
