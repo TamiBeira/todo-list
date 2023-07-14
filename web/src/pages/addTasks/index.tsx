@@ -49,8 +49,9 @@ export default function Dashboard(){
                     <Text mt={10} color="todoList.100" align="center" mb={5} fontSize={30}>Adicione suas tarefas</Text>
                     <Input
                         background="todoList.400"
+                        focusBorderColor='orange'
                         color="todoList.100"
-                        variant="filled"
+                        variant="flushed"
                         size="lg"
                         mb={2}
                         placeholder='titulo da tarefa'
@@ -60,8 +61,9 @@ export default function Dashboard(){
                     />
                     <Input
                         background="todoList.400"
+                        focusBorderColor='orange'
                         color="todoList.100"
-                        variant="filled"
+                        variant="flushed"
                         size="lg"
                         mb={2}
                         placeholder='descrição da tarefa'

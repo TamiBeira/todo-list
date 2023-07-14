@@ -36,7 +36,8 @@ export default function Login(){
             </Center>
             <Input
                 background="todoList.400"
-                variant="filled"
+                focusBorderColor='orange'
+                variant="flushed"
                 size="lg"
                 placeholder='email@email.com'
                 type='email'
@@ -48,7 +49,8 @@ export default function Login(){
             />
             <Input
                 background="todoList.400"
-                variant="filled"
+                focusBorderColor='orange'
+                variant="flushed"
                 size="lg"
                 placeholder='******'
                 type='password'

@@ -27,9 +27,24 @@ export default function MyAcount(){
         <Center>
           <Flex background="todoList.400" minW={550} minH={550} p={10} rounded={8} direction="column" justifyContent="space-evenly">
             <Text color="todoList.100" fontSize={20}>Editar dados cadastrais</Text>
-            <Input/>
-            <Input/>
-            <Input/>
+            <Input 
+              color="todoList.100"
+              placeholder=''
+              focusBorderColor='orange'
+              variant="flushed"
+              />
+            <Input 
+              color="todoList.100"
+              placeholder=''
+              focusBorderColor='orange'
+              variant="flushed"
+              />
+            <Input 
+              color="todoList.100"
+              placeholder=''
+              focusBorderColor='orange'
+              variant="flushed"
+              />
             <Flex direction="row" justifyContent="space-between">
               <Link href="/dashboard">
                 <Text cursor="pointer" color="todoList.100"> <TfiArrowLeft size={28} color="#fba931"/></Text>
