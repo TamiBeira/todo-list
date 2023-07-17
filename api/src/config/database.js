@@ -1,5 +1,17 @@
 import 'dotenv/config';
 
+
+const nodeEnv = process.env.NODE_ENV;
+if (nodeEnv === "production") {
+return {
+dialect: "postgres",
+url: process.env.DATABASE_URL,
+//entities: [entitiesPath],
+//migrations: [migrationsPath],
+};
+}
+
+
 module.exports = {
     dialect: process.env.DB,
     host: process.env.DB_HOST,
