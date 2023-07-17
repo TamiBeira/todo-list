@@ -3,6 +3,7 @@ import Head from 'next/head';
 import { Flex, Text, Button, List, ListItem, Center, Input, Link } from '@chakra-ui/react';
 import { TfiArrowLeft } from "react-icons/tfi";
 import { FiLogOut } from "react-icons/fi";
+import { toast } from 'react-toastify'
 
 import { canSSRAuth } from '../../utils/canSSRAuth'
 import { setupAPIClient } from '../../services/api'
@@ -21,9 +22,33 @@ interface ProfileProps{
 
 export default function MyAcount({user}:ProfileProps){
   const { logoutUser } = useContext(AuthContext);
+  const [name, setName] = useState(user && user?.name)
+  const [email, setEmail] = useState(user?.email ? user?.email : '')
 
+//desconectar do sistema
   async function handleLogout(){
     await logoutUser();
+  }
+
+  async function handleUpdateUser(){
+
+    if(name === '' || email === ''){
+      return toast.error('Favor preencher todos os campos!')
+    }
+
+    try{
+      const apiClient = setupAPIClient();
+      await apiClient.put('/users', {
+        name: name,
+        email: email,
+      })
+
+      alert("Dados alterados com sucesso!");
+
+    }catch(err){
+      console.log(err);
+    }
+    
   }
 
     return(
@@ -60,6 +85,9 @@ export default function MyAcount({user}:ProfileProps){
               focusBorderColor='orange'
               variant="flushed"
               type='text'
+
+              value={name}
+              onChange={ (e) => setName(e.target.value) }
               />
             <Input 
               color="todoList.100"
@@ -67,19 +95,15 @@ export default function MyAcount({user}:ProfileProps){
               focusBorderColor='orange'
               variant="flushed"
               type='email'
-              />
-            <Input 
-              color="todoList.100"
-              placeholder=''
-              focusBorderColor='orange'
-              variant="flushed"
-              type='password'
+
+              value={email}
+              onChange={ (e) => setEmail(e.target.value) }
               />
             <Flex direction="row" justifyContent="space-between">
               <Link href="/dashboard">
                 <Text cursor="pointer" color="todoList.100"> <TfiArrowLeft size={28} color="#fba931"/></Text>
               </Link>
-                <Button background="button.cta" _hover={{bg: "#ffb13e"}}>Atualizar dados</Button>
+                <Button background="button.cta" _hover={{bg: "#ffb13e"}} onClick={handleUpdateUser}>Atualizar dados</Button>
               </Flex>
           </Flex>
         </Center>
@@ -91,42 +115,35 @@ export default function MyAcount({user}:ProfileProps){
     )
 }
 
-export const getServerSideProps = canSSRAuth(async (ctx) => {
 
-    try{
-  
-      const apiClient = setupAPIClient(ctx);
-      const response = await apiClient.get('/tasks',
-      {
-        params:{
-          status: true,
-        }
-      })
+//  export const getServerSideProps = canSSRAuth(async (ctx) => {
 
-      if(response.data === null){
-        return{
-          redirect:{
-            destination: '/',
-            permanent: false,
-          }
-        }
-      }
-  
-  
-      return{
-        props: {
-            task: response.data
-        }
-      }
-  
-    }catch(err){
-      console.log(err);
-      return{
-        redirect:{
-          destination: '/dashboard',
-          permanent: false,
-        }
-      }
-    }
-  
-  })
+//   try{
+//     const apiClient = setupAPIClient(ctx)
+//     const response = await apiClient.put('/users')
+
+//     const user = {
+//       id: response.data.id,
+//       name: response.data.name,
+//       email: response.data.email,
+//     }
+
+//     return{
+//       props: {
+//         user: user,
+//       }
+//     }
+
+
+//   }catch(err){
+//     console.log(err);
+
+//     return{
+//       redirect:{
+//         destination: '/dashboard',
+//         permanent: false,
+//       }
+//     }
+//   }
+
+// })
