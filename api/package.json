@@ -26,7 +26,7 @@
     "eslint-plugin-prettier": "^5.0.0",
     "prettier": "^3.0.0",
     "sequelize-cli": "^6.6.1",
-    "sucrase": "^3.32.0"
+    "sucrase": "^3.34.0"
   },
   "engines": {
     "node": ">=14.18.0"
