@@ -6,7 +6,8 @@
   "scripts": {
     "build":"yarn",
     "start":"node dist/server.js",
-    "dev": "nodemon src/server.js"
+    "dev": "nodemon src/server.js",
+    "migrate": "sequelize db:migrate"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
