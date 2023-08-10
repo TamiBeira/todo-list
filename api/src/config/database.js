@@ -4,8 +4,11 @@ const nodeEnv = process.env.NODE_ENV;
 
 if (nodeEnv === "production") {
   module.exports = {
-    dialect: "postgres",
-    url: process.env.DATABASE_URL,
+    dialect: process.env.DB_P,
+    host: process.env.DB_HOST_P,
+    username: process.env.DB_USER_P,
+    password: process.env.DB_PASS_P,
+    database: process.env.DB_NAME_P,
     define: {
       timestamps: false,
       underscored: true,
