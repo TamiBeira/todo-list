@@ -7,8 +7,8 @@
     "build": "sucrase ./src -d ./dist --transforms imports",
     "start": "node dist/server.js",
     "dev": "nodemon src/server.js",
-    "migrate": "npx sequelize db:migrate",
-    "migration:generate": "npx sequelize migration:generate"
+    "migrate": "NODE_OPTIONS=\"-r sucrase/register\" npx sequelize db:migrate",
+    "migration:generate": "NODE_OPTIONS=\"-r sucrase/register\" npx sequelize migration:generate"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
