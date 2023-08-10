@@ -4,4 +4,4 @@
 yarn install
 
 # Caso queira rodar as migrations durante o processo de construção
-# npx sequelize-cli db:migrate
+npx sequelize-cli db:migrate
