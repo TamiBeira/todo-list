@@ -14,7 +14,7 @@ class App {
 
   middlewares() {
     this.server.use(cors({
-      origin: 'https://todolistapi-kddh.onrender.com/'
+      origin: 'https://todo-list-woad-gamma.vercel.app'
     }));
     
     this.server.use(express.json());
