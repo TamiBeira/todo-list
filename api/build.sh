@@ -4,4 +4,3 @@ set -o errexit
 
 yarn
 yarn build
-yarn sequelize db:migrate
