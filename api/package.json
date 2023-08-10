@@ -4,6 +4,8 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
+    "build":"yarn",
+    "start":"node dist/server.js",
     "dev": "nodemon src/server.js"
   },
   "dependencies": {
