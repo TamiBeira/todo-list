@@ -14,7 +14,9 @@ class App {
 
   middlewares() {
     this.server.use(cors({
-      origin: 'https://todo-list-tamibeira.vercel.app/'
+      origin: 'https://todo-list-tamibeira.vercel.app',
+      methods: ['GET', 'POST', 'PUT', 'DELETE'],
+      allowedHeaders: ['Content-Type', 'Authorization']
     }));
 
     this.server.use(express.json());
