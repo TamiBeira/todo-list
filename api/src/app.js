@@ -13,8 +13,19 @@ class App {
   }
 
   middlewares() {
+    const allowedOrigins = [
+      'https://todo-list-tamibeira.vercel.app',
+      'http://localhost:3000/'
+    ];
+
     this.server.use(cors({
-      origin: 'https://todo-list-tamibeira.vercel.app',
+      origin: function (origin, callback) {
+        if (!origin || allowedOrigins.indexOf(origin) !== -1) {
+          callback(null, true);
+        } else {
+          callback(new Error('Not allowed by CORS'));
+        }
+      },
       methods: ['GET', 'POST', 'PUT', 'DELETE'],
       allowedHeaders: ['Content-Type', 'Authorization']
     }));
