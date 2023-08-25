@@ -1,6 +1,6 @@
 import 'dotenv/config';
 
-const nodeEnv = process.env.NODE_ENV;
+const useSSL = process.env.NODE_ENV === 'production';
 module.exports = {
   dialect: 'postgres',
   url: process.env.DATABASE_URL,
@@ -10,10 +10,10 @@ module.exports = {
     underscoredAll: true
   },
   dialectOptions: {
-    ssl: {
+    ssl: useSSL ? {
       require: true,
       rejectUnauthorized: false
-    }
+    } : null
   }
 };
 
